@@ -1,0 +1,29 @@
+{
+    "messages": [
+        {
+            "id": "123",
+            "userId": "456",
+            "text": "Hello World !",
+            "forumId": "789",
+            "creation_date": "2019-09-14"
+        }
+    ],
+    "users": [
+        {
+            "id": "456",
+            "username": "Ben",
+            "picture": "",
+            "forumIds": ["789"],
+            "creation_date": "2019-09-14"
+        }
+    ],
+    "forums": [
+        {
+            "id": "789",
+            "userId": "456",
+            "messageIds": ["123"],
+            "creation_date": "2019-09-14",
+            "isAvailable": true
+        }
+    ]
+}
