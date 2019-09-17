@@ -1,0 +1,7 @@
+type User {
+    id: String
+    username: String
+    picture: String
+    forumIds: [String]
+    creation_date: String
+}

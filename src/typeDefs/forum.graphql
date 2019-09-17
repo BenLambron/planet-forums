@@ -1,0 +1,7 @@
+type Forum {
+    id: String
+    name: String
+    creation_date: String
+    messageIds: [String]
+    isAvailable: Boolean
+}
