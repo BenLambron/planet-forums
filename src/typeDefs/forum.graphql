@@ -3,5 +3,7 @@ type Forum {
     name: String
     creation_date: String
     messageIds: [String]
-    isAvailable: Boolean
+    isPrivate: Boolean
+    adminUserId: String
+    tempUserIds: [String]
 }

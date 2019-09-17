@@ -19,11 +19,17 @@ const joinForum = (root, args, context, info) => {
     if (!forum) {
         throw new Error('Forum not found');
     }
-    const user = users.find(user => user.id === args.userId);
-    if (!user) {
-        throw new Error('User not found');
+
+    if (forum.isPrivate) {
+        forum.tempUserIds.push(args.userId);
+    } 
+    else {
+        const user = users.find(user => user.id === args.userId);
+        if (!user) {
+            throw new Error('User not found');
+        }
+        user.forumIds.push(forum.id);
     }
-    user.forumIds.push(forum.id);
 
     return forum;
 };
