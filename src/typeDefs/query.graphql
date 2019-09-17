@@ -1,0 +1,7 @@
+type Query {
+    getAllMessages: [Message]
+    getAllForums: [Forum]
+    getAllUsers: [User]
+    getMessagesByForumId(forumId: String): [Message]
+    getUserById(userId: String): User
+}

@@ -1,29 +1,73 @@
 {
-    "messages": [
+    "initMessages": [
         {
-            "id": "123",
-            "userId": "456",
-            "text": "Hello World !",
-            "forumId": "789",
-            "creation_date": "2019-09-14"
+            "id": "e8b99c70-bf6a-458a-8329-cfecdf768b14",
+            "user": {
+                "id": "f98df76e-c14e-4a91-bf7c-2f669b9fe1b8",
+                "username": "Ben",
+                "picture": "https://bit.ly/2mlNuzR",
+                "forumIds": [
+                    "1a3bc252-3de4-4e86-8835-de2e722f8e92"
+                ],
+                "defaultUser": true,
+                "creation_date": "1568684467046"
+            },
+            "text": "Oh Hello There !",
+            "creation_date": "1568684467046"
+        },
+        {
+            "id": "9b27f03a-d2e3-4567-818d-c04a2480ba43",
+            "user": {
+                "id": "c2903f09-1909-4e28-a083-7299f190a403",
+                "username": "John",
+                "picture": "https://bit.ly/2VSVEwv",
+                "forumIds": [
+                    "1a3bc252-3de4-4e86-8835-de2e722f8e92"
+                ],
+                "defaultUser": false,
+                "creation_date": "1568684467046"
+            },
+            "text": "General Kenobi !",
+            "creation_date": "1568684467046"
         }
     ],
-    "users": [
+    "initUsers": [
         {
-            "id": "456",
+            "id": "f98df76e-c14e-4a91-bf7c-2f669b9fe1b8",
             "username": "Ben",
-            "picture": "",
-            "forumIds": ["789"],
-            "creation_date": "2019-09-14"
+            "picture": "https://bit.ly/2mlNuzR",
+            "forumIds": [
+                "1a3bc252-3de4-4e86-8835-de2e722f8e92"
+            ],
+            "defaultUser": true,
+            "creation_date": "1568684467046"
+        },
+        {
+            "id": "c2903f09-1909-4e28-a083-7299f190a403",
+            "username": "John",
+            "picture": "https://bit.ly/2VSVEwv",
+            "forumIds": [
+                "1a3bc252-3de4-4e86-8835-de2e722f8e92"
+            ],
+            "defaultUser": false,
+            "creation_date": "1568684467046"
         }
     ],
-    "forums": [
+    "initForums": [
         {
-            "id": "789",
-            "userId": "456",
-            "messageIds": ["123"],
-            "creation_date": "2019-09-14",
-            "isAvailable": true
+            "id": "1a3bc252-3de4-4e86-8835-de2e722f8e92",
+            "name": "GraphQL-discussions",
+            "messageIds": [
+                "e8b99c70-bf6a-458a-8329-cfecdf768b14",
+                "9b27f03a-d2e3-4567-818d-c04a2480ba43"
+            ],
+            "creation_date": "1568684467046"
+        },
+        {
+            "id": "67b79307-f5bf-4855-a929-921c3a0d4378",
+            "name": "Random",
+            "messageIds": [],
+            "creation_date": "1568684467046"
         }
     ]
 }

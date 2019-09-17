@@ -1,0 +1,6 @@
+type Message {
+    id: String,
+    text: String,
+    creation_date: String
+    user: User
+}
