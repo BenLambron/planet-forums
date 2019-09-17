@@ -3,5 +3,6 @@ type Query {
     getAllForums: [Forum]
     getAllUsers: [User]
     getMessagesByForumId(forumId: String): [Message]
-    getUserById(userId: String): User
+    getUserById(userId: String): User,
+    getRequestJoins(forumId: String): [String]
 }

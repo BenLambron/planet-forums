@@ -6,14 +6,21 @@ const forumTypeDef = fs.readFileSync('./src/typeDefs/forum.graphql');
 const userTypeDef = fs.readFileSync('./src/typeDefs/user.graphql');
 const QUERY = fs.readFileSync('./src/typeDefs/query.graphql');
 
-const { createMessage, createForum, joinForum } = require('./src/mutations');
+const { 
+    createMessage,
+    createForum,
+    joinForum,
+    acceptUserJoin,
+    declineUserJoin
+ } = require('./src/mutations');
 
 const {
     getAllMessages,
     getMessagesByForumId,
     getAllForums,
     getAllUsers,
-    getUserById
+    getUserById,
+    getRequestJoins
 } = require('./src/data');
 
 const typeDefs = gql`
@@ -25,7 +32,9 @@ const typeDefs = gql`
     type Mutation {
         createMessage(userId: String, forumId: String, text: String): Message
         createForum(name: String): Forum
-        joinForum(forumId: String, userId: String): Forum
+        joinForum(forumId: String, userId: String): Forum,
+        acceptUserJoin(forumId: String, requestUserId: String): User,
+        declineUserJoin(forumId: String, requestUserId: String): User
     }
 `;
 
@@ -33,14 +42,17 @@ const resolvers = {
     Mutation: {
         createMessage,
         createForum,
-        joinForum
+        joinForum,
+        acceptUserJoin,
+        declineUserJoin
     },
     Query: {
         getAllMessages,
         getMessagesByForumId,
         getAllForums,
         getAllUsers,
-        getUserById
+        getUserById,
+        getRequestJoins
     }
 };
 
