@@ -1,40 +1,58 @@
 const { ApolloServer, gql } = require('apollo-server-express');
-// const resolvers = require('./src/resolvers');
+const fs = require('fs');
 
-const { messages, forums, users } = require('./fixtures.json');
+const messageTypeDef = fs.readFileSync('./src/typeDefs/message.graphql');
+const forumTypeDef = fs.readFileSync('./src/typeDefs/forum.graphql');
+const userTypeDef = fs.readFileSync('./src/typeDefs/user.graphql');
+const QUERY = fs.readFileSync('./src/typeDefs/query.graphql');
+
+const { 
+    createMessage,
+    createForum,
+    joinForum,
+    acceptUserJoin,
+    declineUserJoin
+ } = require('./src/mutations');
+
+const {
+    getAllMessages,
+    getMessagesByForumId,
+    getAllForums,
+    getAllUsers,
+    getUserById,
+    getRequestJoins
+} = require('./src/data');
 
 const typeDefs = gql`
-    type Message {
-        id: String
-        userId: String
-        text: String
-        forumId: String
-        creation_date: String
-    }
-
-    type Forum {
-        id: String
-        creation_date: String
-        messageIds: [String]
-        isAvailable: String
-    }
-
-    type User {
-        id: String
-        username: String
-        picture: String
-        forumIds: [String]
-        creation_date: String
-    }
-
-    type Query {
-        messages: [Message]
+    ${messageTypeDef}
+    ${forumTypeDef}
+    ${userTypeDef}
+    ${QUERY}
+    
+    type Mutation {
+        createMessage(userId: String, forumId: String, text: String): Message
+        createForum(name: String): Forum
+        joinForum(forumId: String, userId: String): Forum,
+        acceptUserJoin(forumId: String, requestUserId: String): User,
+        declineUserJoin(forumId: String, requestUserId: String): User
     }
 `;
 
 const resolvers = {
+    Mutation: {
+        createMessage,
+        createForum,
+        joinForum,
+        acceptUserJoin,
+        declineUserJoin
+    },
     Query: {
-        messages: () => messages
+        getAllMessages,
+        getMessagesByForumId,
+        getAllForums,
+        getAllUsers,
+        getUserById,
+        getRequestJoins
     }
 };
 

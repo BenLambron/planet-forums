@@ -1,0 +1,9 @@
+type Forum {
+    id: String
+    name: String
+    creation_date: String
+    messageIds: [String]
+    isPrivate: Boolean
+    adminUserId: String
+    tempUserIds: [String]
+}
